@@ -4,13 +4,13 @@ Version: `0.0.1-test`
 
 `Orchestra Conductor` is a small first-person Unity prototype where the player stands inside a concert hall and brings different sections of Beethoven's Fifth Symphony in and out in real time.
 
-## Highlights
+## 介绍语
 
-- Conduct four orchestral sections independently on a shared musical timeline
-- Start from a stylized concert-hall title screen with blurred in-scene background
-- Trigger a ten-second pre-performance countdown before the piece begins
-- Walk the hall in first person while auditioning strings, woodwinds, brass, and percussion
-- Rebuild the demo scene and release assets directly from Unity editor tools
+Walk into the hall, face the orchestra, and conduct a classical performance as if you were standing on the podium yourself.
+
+`Orchestra Conductor` turns orchestral control into an immediate, expressive play experience: bring in strings, woodwinds, brass, and percussion at will, reshape the balance of the ensemble in real time, and experience classical music not just as a listener, but as the person guiding the performance.
+
+It is designed as an interactive classical conducting experience with a live concert-hall atmosphere, first-person movement, and hands-on control over orchestral sections.
 
 ![Orchestra Conductor preview](Docs/Images/screenshot-v0.0.1.png)
 
@@ -18,7 +18,6 @@ Version: `0.0.1-test`
 
 - Playable Unity 6 concert-hall prototype
 - Four controllable orchestral groups: strings, woodwinds, brass, percussion
-- Ten-second pre-performance countdown after pressing `Play`
 - Start menu with blurred concert-hall background
 - Runtime scene builder for reconstructing the demo scene
 - Automatic audio-stem assignment from filenames in `Assets/Audio`
