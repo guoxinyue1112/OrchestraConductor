@@ -1,6 +1,5 @@
 using System.IO;
 using UnityEditor;
-using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -11,6 +10,7 @@ public static class ReleaseTools
     private const string ExecutableName = "OrchestraConductor.exe";
     private const string ScreenshotPath = "Docs/Images/screenshot-v0.0.1.png";
 
+    [MenuItem("Tools/Orchestra Conductor/Build Windows v0.0.1")]
     [MenuItem("Tools/Orchestra Conductor/Release/Build Windows v0.0.1")]
     public static void BuildWindowsRelease()
     {
@@ -25,22 +25,23 @@ public static class ReleaseTools
             options = BuildOptions.None
         };
 
-        BuildReport report = BuildPipeline.BuildPlayer(options);
-        if (report.summary.result != BuildResult.Succeeded)
+        UnityEditor.Build.Reporting.BuildReport report = BuildPipeline.BuildPlayer(options);
+        if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
         {
-            throw new BuildFailedException($"Windows build failed: {report.summary.result}");
+            throw new System.InvalidOperationException($"Windows build failed: {report.summary.result}");
         }
 
         Debug.Log($"Windows release build created at {Path.GetFullPath(BuildDirectory)}");
     }
 
+    [MenuItem("Tools/Orchestra Conductor/Capture README Screenshot")]
     [MenuItem("Tools/Orchestra Conductor/Release/Capture README Screenshot")]
     public static void CaptureReadmeScreenshot()
     {
         EnsureSceneExists();
         EditorSceneManager.OpenScene(ScenePath);
 
-        Camera camera = Object.FindFirstObjectByType<Camera>();
+        Camera camera = Object.FindAnyObjectByType<Camera>();
         if (camera == null)
         {
             throw new MissingReferenceException("No camera was found in Beethoven5Demo scene.");
